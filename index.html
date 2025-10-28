@@ -9,13 +9,13 @@
 <body>
 	<div id="quiz-container">
 	<!-- Section pour la question -->
-		<div class="question"> Dans quel film de Disney entend-on la chanson “Libérée, délivrée” ?</div>
+		<div id="question-text" class="question"> Dans quel film de Disney entend-on la chanson “Libérée, délivrée” ?</div>
 		<!-- Section pour les options -->
-		<div class="options">
-		  <button>Raiponce</button>
-		  <button>La Reine des Neiges</button>
-		  <button>Encanto</button>
-		  <button>Vaiana</button>
+		<div id="options-container" class="options">
+		  <button class="option-button">Raiponce</button>
+		  <button class="option-button">La Reine des Neiges</button>
+		  <button class="option-button">Encanto</button>
+		  <button class="option-button">Vaiana</button>
 		</div>
 		<!-- Prévois déjà le design du bouton "suivant" pour passer à la prochaine question -->
 		 <div class="button-container">
@@ -26,5 +26,7 @@
             <div class = "compteurReponses"></div>
         </div>
 	</div>
+
+<script type="module" src="game.js"></script>
 </body>
 </html>
