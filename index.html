@@ -7,26 +7,40 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<div id="quiz-container">
-	<!-- Section pour la question -->
-		<div id="question-text" class="question"> Dans quel film de Disney entend-on la chanson “Libérée, délivrée” ?</div>
-		<!-- Section pour les options -->
-		<div id="options-container" class="options">
-		  <button class="option-button">Raiponce</button>
-		  <button class="option-button">La Reine des Neiges</button>
-		  <button class="option-button">Encanto</button>
-		  <button class="option-button">Vaiana</button>
-		</div>
-		<!-- Prévois déjà le design du bouton "suivant" pour passer à la prochaine question -->
-		 <div class="button-container">
-		  <button id="next-button">Suivant</button>
-		</div>
-        <div class="compteur">
+  <div id="quiz-container" class="split">
+    <!-- LEFT: image / illustration -->
+    <section class="media" aria-label="Illustration de la question">
+      <img id="question-image" src="/assets/images/question1.jpg" alt="Reine de Neiges">
+    </section>
+
+    <!-- RIGHT: question + options -->
+    <section class="content" aria-live="polite">
+      <!-- Zone question -->
+      <div class="question" id="question-text">
+        Dans quel film de Disney entend-on la chanson “Libérée, délivrée” ?
+      </div>
+
+      <!-- Options -->
+      <div class="options" id="options-container">
+        <!-- Les boutons seront injectés par JS si besoin -->
+        <button class="option">Raiponce</button>
+        <button class="option">La Reine des Neiges</button>
+        <button class="option">Encanto</button>
+        <button class="option">Vaiana</button>
+      </div>
+
+      <!-- Boutons d'action -->
+      <div class="button-row">
+        <button id="next-button" disabled>Suivant</button>
+      </div>
+      <div class="compteur">
             <div class = "compteurQuestions"></div>
             <div class = "compteurReponses"></div>
         </div>
-	</div>
 
-<script type="module" src="game.js"></script>
+
+        <script type="module" src="game.js"></script>
+    </section>
+  </div>
 </body>
 </html>
