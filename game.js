@@ -1,6 +1,6 @@
 import { projet_quiz } from './script.js';
 
-let currentQuestionIndex = 0; // Je prépare l'index des questions, comme ça je pourrais faire +1 à chaque changement de question
+let currentQuestionIndex = -1; // Je prépare l'index des questions, comme ça je pourrais faire +1 à chaque changement de question
 
 const question = document.getElementById("question-text");
 const reponses = document.getElementById("options-container");
@@ -9,10 +9,10 @@ const compteur = document.getElementsByClassName("compteur");
 
 // J'ai créé des variables et je les ai liées aux éléments du HTML dont j'ai besoin (le bloc question, le bloc réponses, le bouton suivant, le compteur)
 
-const firstQuestion = projet_quiz.questions[currentQuestionIndex]; // Ici je vais chercher mes questions et mes réponses dans mon fichier script.js
-
 function loadQuestion() { // Je crée ma fonction qui va charger les questions 
 reponses.innerHTML = " "; // Je vide la section réponses pour être sûr qu'il n'y a pas déjà des boutons
+
+const firstQuestion = projet_quiz.questions[currentQuestionIndex]; // Ici je vais chercher mes questions et mes réponses dans mon fichier script.js
 
 question.innerText = firstQuestion.text; // Je mets le texte de la question dans le bloc question
 
@@ -27,10 +27,15 @@ firstQuestion.options.forEach(option => {
 }
 
 suivant.addEventListener("click", () => {
-    
+    if (currentQuestionIndex <= projet_quiz.questions.length){
+    currentQuestionIndex++;
+    loadQuestion(); 
+    } else {
+        // Afficher page de fin 
+        // faire disparaître le bouton suivant 
+        // faire apparaître un bouton rejouer
+    }
 })
 
 // Je crée un écouteur d'événement sur mon bouton suivant (addEventListener)
-
-loadQuestion()
 
