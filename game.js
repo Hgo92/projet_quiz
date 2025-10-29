@@ -7,11 +7,13 @@ let correctAnswersCount = 0;
 const landingPage = document.getElementById("landing-page");
 const quizSection = document.getElementById("quiz-section");
 const startButton = document.getElementById("start-button");
+
 const question = document.getElementById("question-text");
 const reponses = document.getElementById("options-container");
 const suivant = document.getElementById("next-button");
 const compteurQuestions = document.querySelector(".compteurQuestions");
 const compteurReponses = document.querySelector(".compteurReponses");
+
 const image = document.getElementById("question-image");
 
 // ====== CHARGEMENT D’UNE QUESTION ======
@@ -22,11 +24,13 @@ function loadQuestion() {
   image.src = currentQuestion.image;
 
   // Mettre à jour le compteur
-  compteurQuestions.innerHTML = `<span>Question ${currentQuestionIndex + 1}</span> / <span>${projet_quiz.questions.length}</span>`;
-  compteurReponses.innerHTML = `<span>✅ ${correctAnswersCount}</span> bonnes réponses`;
+  compteurQuestions.innerHTML = `Question ${currentQuestionIndex + 1}/ ${projet_quiz.questions.length}`;
+  compteurReponses.innerHTML = `✅ ${correctAnswersCount} bonnes réponses`;
 
   // Vider les anciennes réponses
   reponses.innerHTML = "";
+
+  // Afficher le texte de la question
   question.innerText = currentQuestion.text;
 
   // Créer les boutons de réponse
