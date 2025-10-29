@@ -16,7 +16,7 @@ const compteurReponses = document.querySelector(".compteurReponses");
 
 const image = document.getElementById("question-image");
 
-// ====== CHARGEMENT D’UNE QUESTION ======
+// CHARGEMENT D’UNE QUESTION
 function loadQuestion() {
   const currentQuestion = projet_quiz.questions[currentQuestionIndex];
 
@@ -45,7 +45,7 @@ function loadQuestion() {
   suivant.disabled = true;
 }
 
-// ====== CONFETTIS 🎊 ======
+// CONFETTIS 🎊 
 function launchConfetti() {
   const confettiContainer = document.createElement("div");
   confettiContainer.classList.add("confetti-container");
@@ -65,10 +65,12 @@ function launchConfetti() {
     confettiContainer.remove();
   }, 4000);
 }
-// ====== SELECTION D’UNE RÉPONSE ======
+
+//SELECTION D’UNE RÉPONSE
+
 function selectAnswer(selectedBtn, correctAnswer) {
   const allButtons = reponses.querySelectorAll("button");
-  allButtons.forEach(btn => btn.disabled = true);
+  allButtons.forEach(btn => btn.disabled = true); // Je désactive tous les boutons après avoir cliqué
 
   if (selectedBtn.innerText === correctAnswer) {
     selectedBtn.classList.add("correct");
@@ -88,7 +90,7 @@ function selectAnswer(selectedBtn, correctAnswer) {
   compteurReponses.innerText = `Bonnes réponses : ${correctAnswersCount}`;
   suivant.disabled = false;
 }
- // Affichage de la fin du quiz
+ // FIN DU QUIZ
 function finQuiz() {
     question.innerText = "🎉 Terminé ! Bravo d'avoir complété le quiz 🎬🎵";
     reponses.innerHTML = ""; // j'efface les reponses 
@@ -110,7 +112,7 @@ function finQuiz() {
     });}
 
 
-// ====== BOUTON SUIVANT ======
+// BOUTON SUIVANT ======
 suivant.addEventListener("click", () => {
   currentQuestionIndex++;
   if (currentQuestionIndex < projet_quiz.questions.length) {
@@ -121,7 +123,7 @@ suivant.addEventListener("click", () => {
   }
 });
 
-// ====== LANCEMENT ======
+// LANCEMENT ======
 
 startButton.addEventListener("click", () => {
   landingPage.style.display = "none";
