@@ -127,18 +127,97 @@ body {
   margin-top: 8px;
 }
 
-#next-button {
-  padding: 10px 18px;
-}
-
-.correct-answer {
-  background-color: #16a34a;
+.option.correct {
+  background-color: #4caf50;
+  border-color: #4caf50;
   color: white;
-  border: 2px solid #16a34a;
 }
 
-.wrong-answer {
-  border: 2px solid #dc2626;
-  color: #dc2626;
-  background-color: transparent;
+.option.wrong {
+  background-color: #f44336;
+  border-color: #f44336;
+  color: white;
+}
+
+.button-row {
+  margin: 15px 0;
+}
+
+#next-button {
+  background: linear-gradient(135deg, #7a6cff, #6156e0);
+  border: none;
+  color: white;
+  padding: 10px 40px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#next-button:hover:enabled {
+  background: linear-gradient(135deg, #6a5acd, #5347d9);
+  transform: scale(1.05);
+}
+
+#next-button:disabled {
+  background: #cfcfcf;
+  cursor: not-allowed;
+}
+
+/* ----- COMPTEUR EN PETIT CARRÉ À GAUCHE ----- */
+.compteur {
+  position: absolute;
+  top: 55px;
+  left: 55px;
+  background: #f4f3ff;
+  border: 2px solid #d6d3ff;
+  border-radius: 12px;
+  padding: 10px 15px;
+  width: 120px;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #4a3ea0;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.compteur div {
+  margin: 5px 0;
+}
+
+.compteur span {
+  color: #6a5acd;
+  font-weight: 700;
+}
+
+/* ====== EFFET CONFETTIS ====== */
+.confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* ne bloque pas les clics */
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 15px;
+  opacity: 0.9;
+  animation: fallConfetti 3s linear forwards;
+}
+
+@keyframes fallConfetti {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
 }

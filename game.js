@@ -41,17 +41,37 @@ function loadQuestion() {
   suivant.disabled = true;
 }
 
+// ====== CONFETTIS 🎊 ======
+function launchConfetti() {
+  const confettiContainer = document.createElement("div");
+  confettiContainer.classList.add("confetti-container");
+  document.body.appendChild(confettiContainer);
+
+  for (let i = 0; i < 150; i++) {
+    const confetti = document.createElement("div");
+    confetti.classList.add("confetti");
+    confetti.style.left = Math.random() * 100 + "vw";
+    confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 70%)`;
+    confetti.style.animationDelay = Math.random() * 2 + "s";
+    confettiContainer.appendChild(confetti);
+  }
+
+  // Supprimer après 4 secondes
+  setTimeout(() => {
+    confettiContainer.remove();
+  }, 4000);
+}
 // ====== SELECTION D’UNE RÉPONSE ======
 function selectAnswer(selectedBtn, correctAnswer) {
   const allButtons = reponses.querySelectorAll("button");
   allButtons.forEach(btn => btn.disabled = true);
 
   if (selectedBtn.innerText === correctAnswer) {
-    selectedBtn.classList.add("correct-answer");
+    selectedBtn.classList.add("correct");
     correctAnswersCount++;
     launchConfetti(); 
   } else {
-    selectedBtn.classList.add("wrong-answer");
+    selectedBtn.classList.add("wrong");
   }
 
   allButtons.forEach(btn => {
@@ -88,34 +108,13 @@ function finQuiz() {
 // ====== BOUTON SUIVANT ======
 suivant.addEventListener("click", () => {
   currentQuestionIndex++;
-  if (currentQuestionIndex <= projet_quiz.questions.length) {
+  if (currentQuestionIndex < projet_quiz.questions.length) {
     loadQuestion();
   } else {
     finQuiz()
     compteurQuestions.innerHTML = `Score final : ${correctAnswersCount} / ${projet_quiz.questions.length}`;
   }
 });
-
-// ====== CONFETTIS 🎊 ======
-function launchConfetti() {
-  const confettiContainer = document.createElement("div");
-  confettiContainer.classList.add("confetti-container");
-  document.body.appendChild(confettiContainer);
-
-  for (let i = 0; i < 150; i++) {
-    const confetti = document.createElement("div");
-    confetti.classList.add("confetti");
-    confetti.style.left = Math.random() * 100 + "vw";
-    confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 70%)`;
-    confetti.style.animationDelay = Math.random() * 2 + "s";
-    confettiContainer.appendChild(confetti);
-  }
-
-  // Supprimer après 4 secondes
-  setTimeout(() => {
-    confettiContainer.remove();
-  }, 4000);
-}
 
 // ====== LANCEMENT ======
 
