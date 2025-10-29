@@ -24,7 +24,7 @@ function loadQuestion() {
   image.src = currentQuestion.image;
 
   // Mettre à jour le compteur
-  compteurQuestions.innerHTML = `Question ${currentQuestionIndex + 1}/ ${projet_quiz.questions.length}`;
+  compteurQuestions.innerHTML = `Question ${currentQuestionIndex + 1}/${projet_quiz.questions.length}`;
   compteurReponses.innerHTML = `✅ ${correctAnswersCount} bonnes réponses`;
 
   // Vider les anciennes réponses
@@ -73,18 +73,20 @@ function selectAnswer(selectedBtn, correctAnswer) {
   allButtons.forEach(btn => btn.disabled = true); // Je désactive tous les boutons après avoir cliqué
 
   if (selectedBtn.innerText === correctAnswer) {
-    selectedBtn.classList.add("correct");
-    correctAnswersCount++;
+    selectedBtn.classList.add("correct");    correctAnswersCount++;
     launchConfetti(); 
-  } else {
+  } else { 
     selectedBtn.classList.add("wrong");
-  }
-
-  allButtons.forEach(btn => {
+    allButtons.forEach(btn => { // 
       if (btn.innerText === correctAnswer) {
         btn.classList.add("correct");
       }
     });
+  }
+
+// Je vérifie si le bouton cliqué correspond à la bonne réponse. Si oui, je lui donne la classe "corret", j'ajoute +1 au compteur et je lance la fonction confettis
+
+// Sinon je lui donne la classe wrong et je vérifie les autres boutons pour mettre la bonne réponse en vert (via la classe correct)
   
 
   compteurReponses.innerText = `Bonnes réponses : ${correctAnswersCount}`;

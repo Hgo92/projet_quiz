@@ -168,8 +168,8 @@ body {
 /* ----- COMPTEUR EN PETIT CARRÉ À GAUCHE ----- */
 .compteur {
   position: absolute;
-  top: 55px;
-  left: 55px;
+  top: 45px;
+  left: 45px;
   background: #f4f3ff;
   border: 2px solid #d6d3ff;
   border-radius: 12px;
