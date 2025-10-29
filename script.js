@@ -1,17 +1,16 @@
     export const projet_quiz = {
     questions: [
     {
-      text: "Dans quel film de Disney entend-on la chanson “Libérée, délivrée” ?",
+      text: "Quel compositeur a créé la musique du film “Inception” ?",
       options: [
-        "Raiponce",
-        "La Reine Des Neiges",
-        "Encato",
-        "Vaiana",
+       "John Williams",
+       "Hans Zimmer",
+       "Ennio Morricone",
+       "James Newton Howard",
       ],
-      correct_answer: "La Reine Des Neiges",
-      image: "assets/images/question1.jpg"
+      correct_answer: "Hans Zimmer",
+      image: "assets/images/question1.avif"
     },{
-    
       text: "Qui a interprété la chanson “Shape of You”, sortie en 2017 ?",
       options: [
         "Ed Sheeran",
@@ -20,7 +19,7 @@
         "Justin Bieber",
       ],
       correct_answer: "Ed Sheeran",
-      image: "assets/images/question2.jpg"
+      image: "assets/images/question2.avif"
     },{
       text: "Quel film a remporté l’Oscar du meilleur film en 2020 ?",
       options: [
@@ -30,7 +29,7 @@
         "Once Upon a Time... in Hollywood",
       ],
       correct_answer: "Parasite",
-      image: "assets/images/question3.jpg"
+      image: "assets/images/question3.avif"
     },{
       text: "Quel groupe britannique est connu pour la chanson “Bohemian Rhapsody?"  ,
       options: [
@@ -40,7 +39,7 @@
         "Pink Floyd",
       ],
       correct_answer: "Queen" ,
-      image: "assets/images/question3.jpg"
+      image: "assets/images/question4.avif"
 //     },{
 //       text: "Dans quel film entend-on la célèbre réplique “Je suis ton père” ?",
 //       options: [
