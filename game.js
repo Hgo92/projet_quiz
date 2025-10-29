@@ -103,6 +103,7 @@ function finQuiz() {
     // Quand on clique sur Rejouer on réinitialiser le quiz
     replayButton.addEventListener("click", () => {
       currentQuestionIndex = 0; // revenir à la première question
+      correctAnswersCount = 0;
       suivant.style.display = "inline-block"; // reafficher le button suivant
       reponses.innerHTML = ""; // revenir a 0
       loadQuestion(); // relancer le quiz
