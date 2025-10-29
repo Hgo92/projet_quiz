@@ -97,7 +97,7 @@ function finQuiz() {
     question.innerText = "🎉 Terminé ! Bravo d'avoir complété le quiz 🎬🎵";
     reponses.innerHTML = ""; // j'efface les reponses 
     suivant.style.display = "none"; // je cache le button suivant
-
+    image.style.display = "none"
     const audio = new Audio("/assets/sounds/applause.wav");
     audio.play()
 

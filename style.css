@@ -38,7 +38,7 @@ body {
 #landing-page h1 {
   font-size: 4.5rem;
   padding: 10px 20px;
-  
+   
 }
 
 #start-button {
@@ -221,3 +221,4 @@ body {
     opacity: 0;
   }
 }
+
