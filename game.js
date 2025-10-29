@@ -54,16 +54,36 @@ function selectAnswer(selectedBtn, correctAnswer) {
     selectedBtn.classList.add("wrong-answer");
   }
 
-  // allButtons.forEach(btn => {
-  //     if (btn.innerText === correctAnswer) {
-  //       btn.classList.add("correct");
-  //     }
-  //   });
+  allButtons.forEach(btn => {
+      if (btn.innerText === correctAnswer) {
+        btn.classList.add("correct");
+      }
+    });
   
 
   compteurReponses.innerText = `Bonnes réponses : ${correctAnswersCount}`;
   suivant.disabled = false;
 }
+ // Affichage de la fin du quiz
+function finQuiz() {
+    question.innerText = "🎉 Terminé ! Bravo d'avoir complété le quiz 🎬🎵";
+    reponses.innerHTML = ""; // j'efface les reponses 
+    suivant.style.display = "none"; // je cache le button suivant
+
+    // bouton "Rejouer"
+    const replayButton = document.createElement("button");
+    replayButton.innerText = "Rejouer";
+    replayButton.classList.add("option"); // pour garder le même style
+    reponses.appendChild(replayButton);
+
+    // Quand on clique sur Rejouer on réinitialiser le quiz
+    replayButton.addEventListener("click", () => {
+      currentQuestionIndex = 0; // revenir à la première question
+      suivant.style.display = "inline-block"; // reafficher le button suivant
+      reponses.innerHTML = ""; // revenir a 0
+      loadQuestion(); // relancer le quiz
+    });}
+
 
 // ====== BOUTON SUIVANT ======
 suivant.addEventListener("click", () => {
@@ -106,22 +126,4 @@ startButton.addEventListener("click", () => {
   loadQuestion();
 });
 
-function finQuiz() {
-    question.innerText = "🎉 Terminé ! Bravo d'avoir complété le quiz 🎬🎵";
-    reponses.innerHTML = ""; // j'efface les reponses 
-    suivant.style.display = "none"; // je cache le button suivant
-
-    // bouton "Rejouer"
-    const replayButton = document.createElement("button");
-    replayButton.innerText = "Rejouer";
-    replayButton.classList.add("option"); // pour garder le même style
-    reponses.appendChild(replayButton);
-
-    // Quand on clique sur Rejouer on réinitialiser le quiz
-    replayButton.addEventListener("click", () => {
-      currentQuestionIndex = 0; // revenir à la première question
-      suivant.style.display = "inline-block"; // reafficher le button suivant
-      reponses.innerHTML = ""; // revenir a 0
-      loadQuestion(); // relancer le quiz
-    });}
 

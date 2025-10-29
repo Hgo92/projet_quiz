@@ -41,65 +41,65 @@
       ],
       correct_answer: "Queen" ,
       image: "assets/images/question3.jpg"
-    },{
-      text: "Dans quel film entend-on la célèbre réplique “Je suis ton père” ?",
-      options: [
-        "Harry Potter et la Coupe de Feu",
-        "Star Wars : L'Empire contre-attaque",
-        "Le Seigneur Des Anneaux : La Communauté de l'Anneau",
-        "Avengers : Endgame",
-      ],
-      correct_answer: "Star Wars : L'Empire contre-attaque",
-      image: "assets/images/question3.jpg"
-    },{
-      text: "Quel artiste a chanté “Like a Prayer?”", 
-      options: [
-        "Madonna",
-        "Lady Gaga",
-        "Beyoncé",
-        "Whitney Houston",
-      ],
-      correct_answer: "Madonna",
-      image: "assets/images/question3.jpg"
-    },{
-      text: "Quel compositeur a créé la musique du film “Inception” ?",
-      options: [
-       "John Williams",
-       "Hans Zimmer",
-       "Ennio Morricone",
-       "James Newton Howard",
-      ],
-      correct_answer: "Hans Zimmer",
-      image: "assets/images/question3.jpg"
-    },{
-      text: "Quel film musical met en scène le groupe ABBA ?",
-      options: [
-       "Moulin Rouge",
-       "Mamma Mia!",
-       "Grease",
-       "La La Land",
-      ],
-      correct_answer: "Mamma Mia!",
-      image: "assets/images/question3.jpg"
-    },{
-      text: "Qui chante “Skyfall”, le thème du film de James Bond du même nom ?",
-      options: [
-       "Adele",
-       "Rihanna",
-       "Sam Smith",
-       "Billie Eilish",
-      ],
-      correct_answer: "Adele" ,
-      image: "assets/images/question3.jpg"
-    },{
-      text: "Quel film d’animation met en avant la passion de la musique mexicaine et la fête des morts ?",
-      options: [
-       "Coco",
-       "Encanto",
-       "Luca",
-       "Le livre de la Vie",
-      ],
-      correct_answer: "Coco",
-      image: "assets/images/question3.jpg"
+//     },{
+//       text: "Dans quel film entend-on la célèbre réplique “Je suis ton père” ?",
+//       options: [
+//         "Harry Potter et la Coupe de Feu",
+//         "Star Wars : L'Empire contre-attaque",
+//         "Le Seigneur Des Anneaux : La Communauté de l'Anneau",
+//         "Avengers : Endgame",
+//       ],
+//       correct_answer: "Star Wars : L'Empire contre-attaque",
+//       image: "assets/images/question3.jpg"
+//     },{
+//       text: "Quel artiste a chanté “Like a Prayer?”", 
+//       options: [
+//         "Madonna",
+//         "Lady Gaga",
+//         "Beyoncé",
+//         "Whitney Houston",
+//       ],
+//       correct_answer: "Madonna",
+//       image: "assets/images/question3.jpg"
+//     },{
+//       text: "Quel compositeur a créé la musique du film “Inception” ?",
+//       options: [
+//        "John Williams",
+//        "Hans Zimmer",
+//        "Ennio Morricone",
+//        "James Newton Howard",
+//       ],
+//       correct_answer: "Hans Zimmer",
+//       image: "assets/images/question3.jpg"
+//     },{
+//       text: "Quel film musical met en scène le groupe ABBA ?",
+//       options: [
+//        "Moulin Rouge",
+//        "Mamma Mia!",
+//        "Grease",
+//        "La La Land",
+//       ],
+//       correct_answer: "Mamma Mia!",
+//       image: "assets/images/question3.jpg"
+//     },{
+//       text: "Qui chante “Skyfall”, le thème du film de James Bond du même nom ?",
+//       options: [
+//        "Adele",
+//        "Rihanna",
+//        "Sam Smith",
+//        "Billie Eilish",
+//       ],
+//       correct_answer: "Adele" ,
+//       image: "assets/images/question3.jpg"
+//     },{
+//       text: "Quel film d’animation met en avant la passion de la musique mexicaine et la fête des morts ?",
+//       options: [
+//        "Coco",
+//        "Encanto",
+//        "Luca",
+//        "Le livre de la Vie",
+//       ],
+//       correct_answer: "Coco",
+//       image: "assets/images/question3.jpg"
     },]
 }
