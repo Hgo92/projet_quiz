@@ -98,6 +98,9 @@ function finQuiz() {
     reponses.innerHTML = ""; // j'efface les reponses 
     suivant.style.display = "none"; // je cache le button suivant
 
+    const audio = new audio("\assets\sounds\applause.wav");
+    audio.play()
+
     // bouton "Rejouer"
     const replayButton = document.createElement("button");
     replayButton.innerText = "Rejouer";
