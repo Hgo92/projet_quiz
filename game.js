@@ -18,7 +18,7 @@ const image = document.getElementById("question-image");
 function loadQuestion() {
   const currentQuestion = projet_quiz.questions[currentQuestionIndex];
 
-  // Changer l'image automatiquement (assure-toi que chaque question ait une image dans script.js)
+  // Changer l'image automatiquement
   image.src = currentQuestion.image;
 
   // Mettre à jour le compteur
@@ -47,18 +47,18 @@ function selectAnswer(selectedBtn, correctAnswer) {
   allButtons.forEach(btn => btn.disabled = true);
 
   if (selectedBtn.innerText === correctAnswer) {
-    selectedBtn.classList.add("correct");
+    selectedBtn.classList.add("correct-answer");
     correctAnswersCount++;
-    launchConfetti(); // 🎉 Appel ici
+    launchConfetti(); 
   } else {
-    selectedBtn.classList.add("wrong");
+    selectedBtn.classList.add("wrong-answer");
   }
 
-  allButtons.forEach(btn => {
-      if (btn.innerText === correctAnswer) {
-        btn.classList.add("correct");
-      }
-    });
+  // allButtons.forEach(btn => {
+  //     if (btn.innerText === correctAnswer) {
+  //       btn.classList.add("correct");
+  //     }
+  //   });
   
 
   compteurReponses.innerText = `Bonnes réponses : ${correctAnswersCount}`;
@@ -68,13 +68,10 @@ function selectAnswer(selectedBtn, correctAnswer) {
 // ====== BOUTON SUIVANT ======
 suivant.addEventListener("click", () => {
   currentQuestionIndex++;
-  if (currentQuestionIndex < projet_quiz.questions.length) {
+  if (currentQuestionIndex <= projet_quiz.questions.length) {
     loadQuestion();
   } else {
-    question.innerText = "🎉 Quiz terminé !";
-    reponses.innerHTML = "";
-    suivant.style.display = "none";
-    image.style.display = "none";
+    finQuiz()
     compteurQuestions.innerHTML = `Score final : ${correctAnswersCount} / ${projet_quiz.questions.length}`;
   }
 });
@@ -101,8 +98,6 @@ function launchConfetti() {
 }
 
 // ====== LANCEMENT ======
-loadQuestion();
-
 
 startButton.addEventListener("click", () => {
   landingPage.style.display = "none";
@@ -111,7 +106,7 @@ startButton.addEventListener("click", () => {
   loadQuestion();
 });
 
- // Fin du quiz
+function finQuiz() {
     question.innerText = "🎉 Terminé ! Bravo d'avoir complété le quiz 🎬🎵";
     reponses.innerHTML = ""; // j'efface les reponses 
     suivant.style.display = "none"; // je cache le button suivant
@@ -128,5 +123,5 @@ startButton.addEventListener("click", () => {
       suivant.style.display = "inline-block"; // reafficher le button suivant
       reponses.innerHTML = ""; // revenir a 0
       loadQuestion(); // relancer le quiz
-    });
+    });}
 
