@@ -36,9 +36,13 @@ body {
 }
 
 #landing-page h1 {
-  font-size: 4.5rem;
+  font-size: 3.2rem;
   padding: 10px 20px;
-   
+}
+
+#landing-page p {
+  font-size: 1.5rem;
+  padding: 10px 20px;
 }
 
 #start-button {
@@ -221,4 +225,6 @@ body {
     opacity: 0;
   }
 }
-
+#landing-page #bloc-compteur {
+  display: none;
+}
