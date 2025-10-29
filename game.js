@@ -16,6 +16,9 @@ const compteurReponses = document.querySelector(".compteurReponses");
 
 const image = document.getElementById("question-image");
 
+const blocCompteur = document.getElementById("bloc-compteur")
+blocCompteur.style.display="none";
+
 // CHARGEMENT D’UNE QUESTION
 function loadQuestion() {
   const currentQuestion = projet_quiz.questions[currentQuestionIndex];
@@ -148,6 +151,7 @@ startButton.addEventListener("click", () => {
   quizSection.style.display = "block";
   currentQuestionIndex = 0;
   loadQuestion();
+  blocCompteur.style.display="block";
 });
 
 // BOUTON RETOUR HOME =====
