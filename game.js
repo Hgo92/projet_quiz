@@ -1,18 +1,26 @@
 import { projet_quiz } from './script.js';
 
-let currentQuestionIndex = 0; // Je prépare l'index des questions, comme ça je pourrais faire +1 à chaque changement de question
-
+let currentQuestionIndex = -1; // Je prépare l'index des questions, comme ça je pourrais faire +1 à chaque changement de question
+const landingPage = document.getElementById("landing-page");
+const quizSection = document.getElementById("quiz-section");
+const startButton = document.getElementById("start-button");
 const question = document.getElementById("question-text");
 const reponses = document.getElementById("options-container");
 const suivant = document.getElementById("next-button");
 const compteur = document.getElementsByClassName("compteur");
 
 // J'ai créé des variables et je les ai liées aux éléments du HTML dont j'ai besoin (le bloc question, le bloc réponses, le bouton suivant, le compteur)
-
-const firstQuestion = projet_quiz.questions[currentQuestionIndex]; // Ici je vais chercher mes questions et mes réponses dans mon fichier script.js
-
+// Show quiz only after clicking "Commencer"
+startButton.addEventListener("click", () => {
+  landingPage.style.display = "none";
+  quizSection.style.display = "block";
+  currentQuestionIndex = 0;
+  loadQuestion();
+});
 function loadQuestion() { // Je crée ma fonction qui va charger les questions 
 reponses.innerHTML = " "; // Je vide la section réponses pour être sûr qu'il n'y a pas déjà des boutons
+
+const firstQuestion = projet_quiz.questions[currentQuestionIndex]; // Ici je vais chercher mes questions et mes réponses dans mon fichier script.js
 
 question.innerText = firstQuestion.text; // Je mets le texte de la question dans le bloc question
 
@@ -48,12 +56,32 @@ function selectAnswer(selectedBtn, correctAnswer) {
   compteurReponses.innerText = `Bonnes réponses : ${correctAnswersCount}`;
   suivant.disabled = false;
 }
-
 suivant.addEventListener("click", () => {
-    
-})
+  // Vérifie s'il reste des questions
+  if (currentQuestionIndex < projet_quiz.questions.length - 1) {
+    currentQuestionIndex++;
+    loadQuestion();
+  } else {
+    // Fin du quiz
+    question.innerText = "🎉 Terminé ! Bravo d'avoir complété le quiz 🎬🎵";
+    reponses.innerHTML = ""; // j'efface les reponses 
+    suivant.style.display = "none"; // je cache le button suivant
+
+    // bouton "Rejouer"
+    const replayButton = document.createElement("button");
+    replayButton.innerText = "Rejouer";
+    replayButton.classList.add("option"); // pour garder le même style
+    reponses.appendChild(replayButton);
+
+    // Quand on clique sur Rejouer on réinitialiser le quiz
+    replayButton.addEventListener("click", () => {
+      currentQuestionIndex = 0; // revenir à la première question
+      suivant.style.display = "inline-block"; // reafficher le button suivant
+      reponses.innerHTML = ""; // revenir a 0
+      loadQuestion(); // relancer le quiz
+    });
+  }
+});
+
 
 // Je crée un écouteur d'événement sur mon bouton suivant (addEventListener)
-
-loadQuestion()
-
