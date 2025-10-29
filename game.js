@@ -129,6 +129,7 @@ function finQuiz() {
     homeButton.addEventListener("click", () => {
       landingPage.style.display = "flex";
       quizSection.style.display = "none";
+      blocCompteur.style.display="none";
     })
   }
 
@@ -150,6 +151,7 @@ startButton.addEventListener("click", () => {
   landingPage.style.display = "none";
   quizSection.style.display = "block";
   currentQuestionIndex = 0;
+  correctAnswersCount = 0
   loadQuestion();
   blocCompteur.style.display="block";
 });
