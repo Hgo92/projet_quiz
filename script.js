@@ -9,7 +9,7 @@
         "Vaiana",
       ],
       correct_answer: "La Reine Des Neiges",
-      image: "images/question1.jpg"
+      image: "assets/images/question1.jpg"
     },{
     
       text: "Qui a interprété la chanson “Shape of You”, sortie en 2017 ?",
@@ -20,7 +20,7 @@
         "Justin Bieber",
       ],
       correct_answer: "Ed Sheeran",
-      image: "images/question2.jpg"
+      image: "assets/images/question2.jpg"
     },{
       text: "Quel film a remporté l’Oscar du meilleur film en 2020 ?",
       options: [
@@ -30,7 +30,7 @@
         "Once Upon a Time... in Hollywood",
       ],
       correct_answer: "Parasite",
-      image: "images/question3.jpg"
+      image: "assets/images/question3.jpg"
     },{
       text: "Quel groupe britannique est connu pour la chanson “Bohemian Rhapsody?"  ,
       options: [
