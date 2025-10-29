@@ -111,7 +111,20 @@ function finQuiz() {
       suivant.style.display = "inline-block"; // reafficher le button suivant
       reponses.innerHTML = ""; // revenir a 0
       loadQuestion(); // relancer le quiz
-    });}
+    });
+
+    // Bouton pour revenir à l'accueil, quand on clique on display le bloc d'accueil et on cache le bloc quiz
+  
+    const homeButton = document.createElement("button");
+    homeButton.innerText = "Retour à l'accueil";
+    homeButton.classList.add("option"); 
+    reponses.appendChild(homeButton);
+
+    homeButton.addEventListener("click", () => {
+      landingPage.style.display = "flex";
+      quizSection.style.display = "none";
+    })
+  }
 
 
 // BOUTON SUIVANT ======
@@ -133,5 +146,8 @@ startButton.addEventListener("click", () => {
   currentQuestionIndex = 0;
   loadQuestion();
 });
+
+// BOUTON RETOUR HOME =====
+
 
 
