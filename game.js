@@ -4,6 +4,9 @@ let currentQuestionIndex = 0;
 let correctAnswersCount = 0;
 
 // Sélection des éléments
+const landingPage = document.getElementById("landing-page");
+const quizSection = document.getElementById("quiz-section");
+const startButton = document.getElementById("start-button");
 const question = document.getElementById("question-text");
 const reponses = document.getElementById("options-container");
 const suivant = document.getElementById("next-button");
@@ -101,4 +104,29 @@ function launchConfetti() {
 loadQuestion();
 
 
+startButton.addEventListener("click", () => {
+  landingPage.style.display = "none";
+  quizSection.style.display = "block";
+  currentQuestionIndex = 0;
+  loadQuestion();
+});
+
+ // Fin du quiz
+    question.innerText = "🎉 Terminé ! Bravo d'avoir complété le quiz 🎬🎵";
+    reponses.innerHTML = ""; // j'efface les reponses 
+    suivant.style.display = "none"; // je cache le button suivant
+
+    // bouton "Rejouer"
+    const replayButton = document.createElement("button");
+    replayButton.innerText = "Rejouer";
+    replayButton.classList.add("option"); // pour garder le même style
+    reponses.appendChild(replayButton);
+
+    // Quand on clique sur Rejouer on réinitialiser le quiz
+    replayButton.addEventListener("click", () => {
+      currentQuestionIndex = 0; // revenir à la première question
+      suivant.style.display = "inline-block"; // reafficher le button suivant
+      reponses.innerHTML = ""; // revenir a 0
+      loadQuestion(); // relancer le quiz
+    });
 
