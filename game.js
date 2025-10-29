@@ -26,6 +26,29 @@ firstQuestion.options.forEach(option => {
 
 }
 
+function selectAnswer(selectedBtn, correctAnswer) {
+  const allButtons = reponses.querySelectorAll("button");
+  allButtons.forEach(btn => btn.disabled = true);
+
+  if (selectedBtn.innerText === correctAnswer) {
+    selectedBtn.classList.add("correct");
+    correctAnswersCount++;
+    launchConfetti(); // 🎉 Appel ici
+  } else {
+    selectedBtn.classList.add("wrong");
+  }
+
+  allButtons.forEach(btn => {
+      if (btn.innerText === correctAnswer) {
+        btn.classList.add("correct");
+      }
+    });
+  
+
+  compteurReponses.innerText = `Bonnes réponses : ${correctAnswersCount}`;
+  suivant.disabled = false;
+}
+
 suivant.addEventListener("click", () => {
     
 })
