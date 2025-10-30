@@ -22,6 +22,7 @@ blocCompteur.style.display="none";
 // CHARGEMENT D’UNE QUESTION
 function loadQuestion() {
   const currentQuestion = projet_quiz.questions[currentQuestionIndex];
+  suivant.style.backgroundColor = "#4caf50"
 
   // Changer l'image automatiquement
   image.src = currentQuestion.image;
@@ -78,11 +79,14 @@ function selectAnswer(selectedBtn, correctAnswer) {
   if (selectedBtn.innerText === correctAnswer) {
     selectedBtn.classList.add("correct");    correctAnswersCount++;
     launchConfetti(); 
+    suivant.style.backgroundColor = "#4caf50"
   } else { 
     selectedBtn.classList.add("wrong");
+    suivant.style.backgroundColor = "#f44336"
     allButtons.forEach(btn => { // 
       if (btn.innerText === correctAnswer) {
         btn.classList.add("correct");
+        
       }
     });
   }
