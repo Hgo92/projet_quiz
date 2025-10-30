@@ -22,7 +22,8 @@ blocCompteur.style.display="none";
 // CHARGEMENT D’UNE QUESTION
 function loadQuestion() {
   const currentQuestion = projet_quiz.questions[currentQuestionIndex];
-  suivant.style.backgroundColor = "#4caf50"
+  blocCompteur.classList.remove("center");
+  question.classList.remove("quiz-finish");
 
   // changer l'image automatiquement
   image.src = currentQuestion.image;
@@ -45,7 +46,7 @@ image.classList.add("image-animate");
 
   // Mettre à jour le compteur
   compteurQuestions.innerHTML = `Question ${currentQuestionIndex + 1}/${projet_quiz.questions.length}`;
-  compteurReponses.innerHTML = `✅ ${correctAnswersCount} bonnes réponses`;
+  compteurReponses.innerHTML = ` ${correctAnswersCount} Bonnes réponses `;
 
   // Vider les anciennes réponses
   reponses.innerHTML = "";
@@ -95,10 +96,8 @@ function selectAnswer(selectedBtn, correctAnswer) {
   if (selectedBtn.innerText === correctAnswer) {
     selectedBtn.classList.add("correct");    correctAnswersCount++;
     launchConfetti(); 
-    suivant.style.backgroundColor = "#4caf50"
   } else { 
     selectedBtn.classList.add("wrong");
-    suivant.style.backgroundColor = "#f44336"
     allButtons.forEach(btn => { // 
       if (btn.innerText === correctAnswer) {
         btn.classList.add("correct");
@@ -121,6 +120,8 @@ function finQuiz() {
     reponses.innerHTML = ""; // j'efface les reponses 
     suivant.style.display = "none"; // je cache le button suivant
     image.style.display = "none"
+    question.classList.add("quiz-finish");
+    blocCompteur.classList.add("center");
     const audio = new Audio("/assets/sounds/applause.wav");
     audio.play()
 
@@ -177,6 +178,4 @@ startButton.addEventListener("click", () => {
 });
 
 // BOUTON RETOUR HOME =====
-
-
 
