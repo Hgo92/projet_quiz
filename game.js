@@ -25,6 +25,7 @@ function loadQuestion() {
 
   // Changer l'image automatiquement
   image.src = currentQuestion.image;
+  image.style.display = "block";
 
   // Mettre à jour le compteur
   compteurQuestions.innerHTML = `Question ${currentQuestionIndex + 1}/${projet_quiz.questions.length}`;
@@ -59,7 +60,7 @@ function launchConfetti() {
     confetti.classList.add("confetti");
     confetti.style.left = Math.random() * 100 + "vw";
     confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 70%)`;
-    confetti.style.animationDelay = Math.random() * 2 + "s";
+    confetti.style.animationDelay = Math.random() * 0.5 + "s";
     confettiContainer.appendChild(confetti);
   }
 
