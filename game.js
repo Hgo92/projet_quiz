@@ -23,9 +23,24 @@ blocCompteur.style.display="none";
 function loadQuestion() {
   const currentQuestion = projet_quiz.questions[currentQuestionIndex];
 
-  // Changer l'image automatiquement
+  // changer l'image automatiquement
   image.src = currentQuestion.image;
   image.style.display = "block";
+
+  image.src = currentQuestion.image;
+  // déclenche une animation à chaque changement d'image
+image.classList.remove("image-animate"); // reset si déjà présent
+void image.offsetWidth; // force le reflow pour relancer l'animation
+image.classList.add("image-animate");
+
+// changer l'image automatiquement
+image.src = currentQuestion.image;
+image.style.display = "block";
+
+// déclenche une animation à chaque changement d'image
+image.classList.remove("image-animate");
+void image.offsetWidth; // reset l’animation
+image.classList.add("image-animate");
 
   // Mettre à jour le compteur
   compteurQuestions.innerHTML = `Question ${currentQuestionIndex + 1}/${projet_quiz.questions.length}`;

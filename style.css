@@ -95,7 +95,7 @@ body {
 }
 
 
-.options button {
+/* .options button {
   display: block;
   width: 100%;
   background: #ffda79;
@@ -115,6 +115,51 @@ body {
   background: #ffda79;
   color: #1c1f26;
   transform: translateY(-3px);
+} */
+
+.options button {
+  display: block;
+  width: 100%;
+  background: #1e1e1e;
+  border: 1px solid #2d2d2d;
+  color: #e5e5e5;
+  padding: 1rem;
+  margin: 0.6rem 0;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.options button:hover {
+  background: #292929;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+}
+
+.option.correct {
+  background: #198754; 
+  border: 1px solid #157347;
+  color: #fff;
+  box-shadow: 0 0 14px rgba(25, 135, 84, 0.4);
+}
+
+.option.wrong {
+  background: #dc3545; 
+  border: 1px solid #b02a37;
+  color: #fff;
+  box-shadow: 0 0 14px rgba(220, 53, 69, 0.4);
+}
+
+.option.correct:hover {
+  background: #157347;
+}
+
+.option.wrong:hover {
+  background: #b02a37;
 }
 
 #quiz-container.split {
@@ -157,7 +202,7 @@ body {
   margin-top: 8px;
 }
 
-.option.correct {
+/* .option.correct {
   background-color: #4caf50;
   border-color: #4caf50;
   color: white;
@@ -167,7 +212,7 @@ body {
   background-color: #f44336;
   border-color: #f44336;
   color: white;
-}
+} */
 
 .button-row {
   margin: 15px 0;
@@ -266,4 +311,20 @@ body {
   font-size:.85rem; color:#ddd; opacity:.7;
   background: rgba(0,0,0,.35); padding:6px 10px; border-radius:8px;
   border:1px solid rgba(255,255,255,.12);
+}
+
+/* === Animation de transition pour l'image === */
+.image-animate {
+  animation: scrollUp 0.7s ease;
+}
+
+@keyframes scrollUp {
+  0% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
