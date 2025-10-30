@@ -25,6 +25,7 @@ function loadQuestion() {
 
   // Changer l'image automatiquement
   image.src = currentQuestion.image;
+  image.style.display = "block";
 
   // Mettre à jour le compteur
   compteurQuestions.innerHTML = `Question ${currentQuestionIndex + 1}/${projet_quiz.questions.length}`;
