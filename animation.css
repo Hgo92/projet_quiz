@@ -1,0 +1,69 @@
+/* =====================
+   ANIMATIONS ONLY CSS
+   ===================== */
+
+/* --- Image & buttons entrance animation --- */
+@keyframes scrollUp {
+  0% { transform: translateY(40px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+.image-animate { animation: scrollUp 0.7s ease; }
+.reveal-up { animation: scrollUp 0.6s ease both; }
+
+/*Confetti animation */
+@keyframes fallConfetti {
+  0%   { transform: translateY(-10vh) rotate(0deg);   opacity: 1; }
+  50%  { opacity: 1; }
+  100% { transform: translateY(100vh) rotate(1080deg); opacity: 0; }
+}
+.confetti-container {
+  position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 9999;
+}
+.confetti {
+  position: absolute; width: 8px; height: 14px; opacity: .9; border-radius: 2px;
+  animation: fallConfetti 1.5s cubic-bezier(0.25,0.46,0.45,0.94) forwards;
+}
+
+/*Popup*/
+@keyframes popIn {
+  0% { transform: translateY(12px) scale(.98); opacity: 0; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+.popup {
+  display: none;
+  position: fixed; left: 50%; top: 12%; transform: translateX(-50%);
+  background: rgba(17, 17, 17, .92); color: #fff;
+  padding: 14px 18px; border-radius: 12px; z-index: 10000;
+  box-shadow: 0 18px 40px rgba(0,0,0,.35);
+}
+.popup.show { display: block; animation: popIn .35s ease; }
+
+/*reduced motion*/
+@media (prefers-reduced-motion: reduce) {
+  .image-animate,
+  .reveal-up,
+  .confetti,
+  .popup.show { animation: none !important; opacity: 1 !important; transform: none !important; }
+}
+
+/*Apply scrollUp to quiz & finish buttons*/
+.options button {
+  opacity: 0;
+  animation: scrollUp 0.6s ease both; /* runs when buttons are inserted */
+}
+
+/* Navigation buttons */
+#next-button,
+#replay-button,
+#home-button {
+  opacity: 0;
+  animation: scrollUp 0.6s ease 0.28s both;
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .options button,
+  #next-button,
+  #replay-button,
+  #home-button { animation: none !important; opacity: 1 !important; }
+}

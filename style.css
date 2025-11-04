@@ -9,13 +9,10 @@
   .media img {
     max-height: 40vh;
   }
-
   .score-container .option {
     font-size: 12px;
 }
-
 }
-
 *{
   margin: 0;
   padding: 0;
@@ -30,8 +27,6 @@
   #quiz-section .media { display: none !important; }
   #quiz-container.split { grid-template-columns: 1fr !important; }
 }
-
-
 body {
     display: flex;
     justify-content: center;
@@ -39,7 +34,6 @@ body {
     height: 100vh;
     margin: 0;
 }
-
 /* landing page setting  */
 #landing-page {
   position: relative;
@@ -59,7 +53,6 @@ body {
   background-color: rgba(0, 0, 0, 0.45);
   background-blend-mode: darken;
 }
-
 
 #landing-page h1 {
   font-size: 3.2rem;
@@ -115,7 +108,6 @@ body {
     gap: 10px;
     margin: 20px 0;
 }
-
 
 .options button {
   display: block;
@@ -301,99 +293,6 @@ body {
   font-size:.85rem; color:#ddd; opacity:.7;
   background: rgba(0,0,0,.35); padding:6px 10px; border-radius:8px;
   border:1px solid rgba(255,255,255,.12);
-}
-
-@keyframes scrollUp {
-  0% {
-    transform: translateY(40px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-/* === Animation de transition pour l'image === */
-.image-animate {
-  animation: scrollUp 0.7s ease;
-}
-
-@keyframes fallConfetti {
-  0% {
-    transform: translateY(-10vh) rotate(0deg);
-    opacity: 1;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(100vh) rotate(1080deg);
-    opacity: 0;
-  }
-}
-
-/* ====== EFFET CONFETTIS ====== */
-.confetti-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: 9999;
-}
-
-.confetti {
-  position: absolute;
-  width: 8px;
-  height: 14px;
-  opacity: 0.9;
-  border-radius: 2px;
-  animation: fallConfetti 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-}
-
-@keyframes fallConfetti {
-  0% {
-    transform: translateY(-10vh) rotate(0deg);
-    opacity: 1;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(100vh) rotate(1080deg);
-    opacity: 0;
-  }
-}
-
-/* efface le compteur sur la page d'acceuil  */
-#landing-page #bloc-compteur {
-  display: none;
-}
-/* footer style */
-.lp-footer {
-  position:absolute; bottom:14px; left:50%; transform:translateX(-50%);
-  font-size:.85rem; color:#ddd; opacity:.7;
-  background: rgba(0,0,0,.35); padding:6px 10px; border-radius:8px;
-  border:1px solid rgba(255,255,255,.12);
-}
-
-/* === Animation de transition pour l'image === */
-.image-animate {
-  animation: scrollUp 0.7s ease;
-}
-
-@keyframes scrollUp {
-  0% {
-    transform: translateY(40px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
 }
 
 .bar-wrapper {
