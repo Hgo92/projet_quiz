@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Cantata+One&family=Manrope:wght@200..800&display=swap');
 @media (max-width: 800px) {
   #quiz-container.split {
     grid-template-columns: 1fr;
@@ -12,7 +13,7 @@
 *{
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Manrope', sans-serif;
   box-sizing: border-box;
 }
 
@@ -101,28 +102,6 @@ body {
 }
 
 
-/* .options button {
-  display: block;
-  width: 100%;
-  background: #ffda79;
-  border: 2px solid #ffda79;
-  color: #fff;
-  padding: 0.8rem;
-  margin: 0.5rem 0;
-  border-radius: 10px;
-  font-size: 1.6rem;
-  cursor: pointer;
-  transition: all 0.6s ease;
-  font-weight: 500;
-  margin-bottom: 1rem;
-}
-
-.options button:hover {
-  background: #ffda79;
-  color: #1c1f26;
-  transform: translateY(-3px);
-} */
-
 .options button {
   display: block;
   width: 100%;
@@ -137,6 +116,14 @@ body {
   font-weight: 500;
   letter-spacing: 0.5px;
   transition: all 0.3s ease;
+  font-family: 'Cantata One', serif;
+}
+
+/* Different font for all text in the options container */
+#options-container {
+  font-family: 'Cantata One', serif; 
+  font-weight: 600;
+  letter-spacing: 0.3px;
 }
 
 .options button:hover {
@@ -174,7 +161,7 @@ body {
   gap: 24px;
   width: min(1000px, 92vw);
 }
-
+/* image settings */
 .media {
   align-self: stretch;
   display: flex;
@@ -193,8 +180,11 @@ body {
 .content {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
   align-self: center;
+  padding: 2rem 3rem; 
+  border-radius: 20px; 
+  box-sizing: border-box;
 }
 
 .question {
@@ -203,12 +193,26 @@ body {
   font-size: 1.7rem;
   line-height: 1.35;
 }
-
-.question.quiz-finish {
-  font-size: 2.5rem;
-  line-height: 1.4;
-  white-space: nowrap;
+/* question setting */
+#question-text {
+  font-family: 'Cantata One', serif;  
+  font-weight: 700;                 
+  letter-spacing: 0.3px;            
 }
+
+@media (max-width: 600px) {
+  .options + #bloc-compteur {
+    margin: 16px auto 56px; 
+  }
+}
+
+/* Responsive mobile */
+@media (max-width: 600px) {
+  .question.quiz-finish {
+    font-size: 1.4rem;
+  }
+}
+
 
 .button-row {
   display: flex;
@@ -216,14 +220,12 @@ body {
   margin-top: 8px;
 }
 
-
-
 .button-row {
   margin: 0 0 3rem 0;
 }
 
 #next-button {
-  background: linear-gradient(135deg, #3b82f6, #2563eb); /* modern blue gradient */
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
   border: none;
   color: white;
   padding: 10px 40px;
@@ -283,6 +285,47 @@ body {
   font-size: 1.2rem;
   margin: 18px auto 0;
 }
+/* efface le compteur sur la page d'acceuil  */
+#landing-page #bloc-compteur {
+  display: none;
+}
+/* footer style */
+.lp-footer {
+  position:absolute; bottom:14px; left:50%; transform:translateX(-50%);
+  font-size:.85rem; color:#ddd; opacity:.7;
+  background: rgba(0,0,0,.35); padding:6px 10px; border-radius:8px;
+  border:1px solid rgba(255,255,255,.12);
+}
+
+@keyframes scrollUp {
+  0% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* === Animation de transition pour l'image === */
+.image-animate {
+  animation: scrollUp 0.7s ease;
+}
+
+@keyframes fallConfetti {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(1080deg);
+    opacity: 0;
+  }
+}
 
 /* ====== EFFET CONFETTIS ====== */
 .confetti-container {
@@ -303,46 +346,4 @@ body {
   opacity: 0.9;
   border-radius: 2px;
   animation: fallConfetti 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-}
-
-@keyframes fallConfetti {
-  0% {
-    transform: translateY(-10vh) rotate(0deg);
-    opacity: 1;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(100vh) rotate(1080deg);
-    opacity: 0;
-  }
-}
-
-/* efface le compteur sur la page d'acceuil  */
-#landing-page #bloc-compteur {
-  display: none;
-}
-/* footer style */
-.lp-footer {
-  position:absolute; bottom:14px; left:50%; transform:translateX(-50%);
-  font-size:.85rem; color:#ddd; opacity:.7;
-  background: rgba(0,0,0,.35); padding:6px 10px; border-radius:8px;
-  border:1px solid rgba(255,255,255,.12);
-}
-
-/* === Animation de transition pour l'image === */
-.image-animate {
-  animation: scrollUp 0.7s ease;
-}
-
-@keyframes scrollUp {
-  0% {
-    transform: translateY(40px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
 }
