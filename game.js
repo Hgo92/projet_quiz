@@ -11,18 +11,23 @@ const startButton = document.getElementById("start-button");
 const question = document.getElementById("question-text");
 const reponses = document.getElementById("options-container");
 const suivant = document.getElementById("next-button");
+
 const compteurQuestions = document.querySelector(".compteurQuestions");
 const compteurReponses = document.querySelector(".compteurReponses");
+const scoreTableau = document.getElementById("score-tableau");
+let tbody = document.getElementById("body-tableau")
 
 const image = document.getElementById("question-image");
 
 const blocCompteur = document.getElementById("bloc-compteur")
 blocCompteur.style.display="none";
+scoreTableau.style.display="none";
 
 // CHARGEMENT D’UNE QUESTION
 function loadQuestion() {
   const currentQuestion = projet_quiz.questions[currentQuestionIndex];
   suivant.style.backgroundColor = "#4caf50"
+  suivant.style.display = "inline-block"
 
   // changer l'image automatiquement
   image.src = currentQuestion.image;
@@ -115,7 +120,8 @@ function selectAnswer(selectedBtn, correctAnswer) {
   compteurReponses.innerText = `Bonnes réponses : ${correctAnswersCount}`;
   suivant.disabled = false;
 }
- // FIN DU QUIZ
+
+// FIN DU QUIZ
 function finQuiz() {
     question.innerText = "🎉 Terminé ! Bravo d'avoir complété le quiz 🎬🎵";
     reponses.innerHTML = ""; // j'efface les reponses 
@@ -123,6 +129,46 @@ function finQuiz() {
     image.style.display = "none"
     const audio = new Audio("/assets/sounds/applause.wav");
     audio.play()
+
+    // Enregistrer le score 
+    const scoreInput = document.createElement("input");
+    const scoreButton = document.createElement("button");
+    const scoreContainer= document.createElement("div")
+
+    scoreInput.placeholder = "Votre nom"
+    scoreButton.innerText = "Enregistrer votre score"
+
+    scoreInput.classList.add("option");
+    scoreButton.classList.add("option");
+    scoreContainer.classList.add("score-container")
+
+    scoreContainer.appendChild(scoreInput);
+    scoreContainer.appendChild(scoreButton);
+    reponses.appendChild(scoreContainer);
+    
+    scoreButton.addEventListener("click" , () => {
+
+    let name = scoreInput.value;
+    
+    const scoresData = localStorage.getItem('quizScores');
+    let scores = scoresData ? JSON.parse(scoresData) : [];
+
+    scores.push({name: name, score: parseInt(correctAnswersCount)});
+    scores.sort((a,b) => b.score - a.score);
+    scores = scores.slice(0,5);
+    localStorage.setItem('quizScores', JSON.stringify(scores));
+
+    tbody.innerHTML=" ";
+    scores.forEach(({name, score}) => {
+        const row = document.createElement('tr')
+        row.innerHTML = `
+        <td>${name}</td>
+        <td>${score}</td>`
+        tbody.appendChild(row);
+        })
+        
+      scoreTableau.style.display="flex";
+    })
 
     // bouton "Rejouer"
     const replayButton = document.createElement("button");
@@ -134,6 +180,7 @@ function finQuiz() {
     replayButton.addEventListener("click", () => {
       currentQuestionIndex = 0; // revenir à la première question
       correctAnswersCount = 0;
+      scoreTableau.style.display="none";
       suivant.style.display = "inline-block"; // reafficher le button suivant
       reponses.innerHTML = ""; // revenir a 0
       loadQuestion(); // relancer le quiz
@@ -150,6 +197,7 @@ function finQuiz() {
       landingPage.style.display = "flex";
       quizSection.style.display = "none";
       blocCompteur.style.display="none";
+      scoreTableau.style.display="none";
     })
   }
 

@@ -26,7 +26,22 @@
 
       <!-- droite: question + options -->
       <section class="content" aria-live="polite">
+        
+
         <div class="question" id="question-text"></div>
+        <div id="score-tableau">
+          <table class="scoretable">
+            <caption>Les 5 meilleurs scores</caption>
+            <thead>
+              <tr>
+                <th scope="col">Nom</th>
+                <th scope="col">Score</th>
+              </tr>
+            </thead>
+            <tbody id ="body-tableau">
+            </tbody>
+          </table>
+        </div>
         <div class="options" id="options-container"></div>
         <div class="button-row">
           <button id="next-button">Suivant</button>
