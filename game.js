@@ -16,6 +16,9 @@ const compteurReponses = document.querySelector(".compteurReponses");
 
 const image = document.getElementById("question-image");
 
+const scoreTableau = document.getElementById("score-tableau");
+let tbody = document.getElementById("body-tableau")
+
 const blocCompteur = document.getElementById("bloc-compteur")
 blocCompteur.style.display="none";
 
@@ -125,6 +128,47 @@ function finQuiz() {
     const audio = new Audio("/assets/sounds/applause.wav");
     audio.play()
 
+     // Enregistrer le score 
+    const scoreInput = document.createElement("input");
+    const scoreButton = document.createElement("button");
+    const scoreContainer= document.createElement("div")
+
+    scoreInput.placeholder = "Votre nom"
+    scoreButton.innerText = "Enregistrer votre score"
+
+    scoreInput.classList.add("option");
+    scoreButton.classList.add("option");
+    scoreContainer.classList.add("score-container")
+
+    scoreContainer.appendChild(scoreInput);
+    scoreContainer.appendChild(scoreButton);
+    reponses.appendChild(scoreContainer);
+    
+    scoreButton.addEventListener("click" , () => {
+
+    let name = scoreInput.value;
+    
+    const scoresData = localStorage.getItem('quizScores');
+    let scores = scoresData ? JSON.parse(scoresData) : [];
+
+    scores.push({name: name, score: parseInt(correctAnswersCount)});
+    scores.sort((a,b) => b.score - a.score);
+    scores = scores.slice(0,5);
+    localStorage.setItem('quizScores', JSON.stringify(scores));
+
+    tbody.innerHTML=" ";
+    scores.forEach(({name, score}) => {
+        const row = document.createElement('tr')
+        row.innerHTML = `
+        <td>${name}</td>
+        <td>${score}</td>`
+        tbody.appendChild(row);
+        })
+        
+      scoreTableau.style.display="flex";
+    })
+
+
     // bouton "Rejouer"
     const replayButton = document.createElement("button");
     replayButton.innerText = "Rejouer";
@@ -137,6 +181,7 @@ function finQuiz() {
       correctAnswersCount = 0;
       suivant.style.display = "inline-block"; // reafficher le button suivant
       reponses.innerHTML = ""; // revenir a 0
+      scoreTableau.style.display="none";
       loadQuestion(); // relancer le quiz
     });
 
@@ -151,6 +196,7 @@ function finQuiz() {
       landingPage.style.display = "flex";
       quizSection.style.display = "none";
       blocCompteur.style.display="none";
+      scoreTableau.style.display="none";
     })
   }
 

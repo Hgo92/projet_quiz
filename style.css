@@ -390,9 +390,6 @@ body {
   }
 }
 
-
-
-
 .bar-wrapper {
   display: none;
   flex-direction: column;
@@ -417,3 +414,78 @@ body {
   width: 0;
   transition: width 0.6s ease-in-out;
 }   
+
+/* CSS DU TABLEAU DES SCORES */ 
+
+.score-container {
+  display: flex;
+  padding: 5px; 
+  margin: 0px;
+}
+
+.score-container input {
+  margin : 0px 10px;
+  height : 2rem;
+  align-self :center;
+}
+
+.score-container button {
+  height : 3rem;
+  align-self :center;
+  padding: 5px 10px;
+  
+}
+
+#score-tableau {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35vh;
+}
+
+table {
+font-size: 14px;
+border-radius: 10px;
+border-spacing: 0;
+text-align: center;
+}
+
+caption {
+  color: black;
+  margin-bottom: 7px;
+  font-size: 16px;
+}
+
+th {
+background: black;
+padding: 10px 20px;
+color: white;
+}
+th, td {
+border-style: solid;
+border-width: 1px 1px 1px 1px;
+border-color: rgba(0,0,0,0.1);
+}
+
+th:first-child {
+border-top-left-radius: 5px;
+}
+th:last-child {
+border-top-right-radius: 5px;
+border-right: none;
+}
+th:first-child, td:first-child {
+padding: 7px 8px;
+}
+
+td {
+  padding: 7px 20px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+tr:last-child td:first-child {
+border-radius: 0 0 0 5px;
+}
+tr:last-child td:last-child {
+border-radius: 0 0 5px 0;
+}
