@@ -496,3 +496,14 @@ border-radius: 0 0 0 5px;
 tr:last-child td:last-child {
 border-radius: 0 0 5px 0;
 }
+/* === Force hide compteur on mobile === */
+@media (max-width: 600px) {
+  #bloc-compteur { display: none !important; visibility: hidden !important; opacity: 0 !important; }
+}
+/* === Mobile: remove image inside quiz section === */
+@media (max-width: 600px) {
+  /* Hide the left image panel entirely */
+  #quiz-section .media { display: none !important; }
+  /* Make the quiz use one column when the image is hidden */
+  #quiz-container.split { grid-template-columns: 1fr !important; }
+}
