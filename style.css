@@ -22,6 +22,15 @@
   font-family: 'Manrope', sans-serif;
   box-sizing: border-box;
 }
+/*Force hide compteur on mobile */
+@media (max-width: 600px) {
+  #bloc-compteur { display: none !important; visibility: hidden !important; opacity: 0 !important; }
+}
+@media (max-width: 600px) {
+  #quiz-section .media { display: none !important; }
+  #quiz-container.split { grid-template-columns: 1fr !important; }
+}
+
 
 body {
     display: flex;
@@ -211,15 +220,6 @@ body {
     margin: 16px auto 56px; 
   }
 }
-
-/* Responsive mobile */
-@media (max-width: 600px) {
-  .question.quiz-finish {
-    font-size: 1.4rem;
-  }
-}
-
-
 .button-row {
   display: flex;
   justify-content: flex-end;
@@ -495,15 +495,4 @@ border-radius: 0 0 0 5px;
 }
 tr:last-child td:last-child {
 border-radius: 0 0 5px 0;
-}
-/* === Force hide compteur on mobile === */
-@media (max-width: 600px) {
-  #bloc-compteur { display: none !important; visibility: hidden !important; opacity: 0 !important; }
-}
-/* === Mobile: remove image inside quiz section === */
-@media (max-width: 600px) {
-  /* Hide the left image panel entirely */
-  #quiz-section .media { display: none !important; }
-  /* Make the quiz use one column when the image is hidden */
-  #quiz-container.split { grid-template-columns: 1fr !important; }
 }
