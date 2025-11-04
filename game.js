@@ -17,7 +17,9 @@ const compteurReponses = document.querySelector(".compteurReponses");
 const image = document.getElementById("question-image");
 
 const scoreTableau = document.getElementById("score-tableau");
-let tbody = document.getElementById("body-tableau")
+let tbody = document.getElementById("body-tableau");
+scoreTableau.style.display="none";
+
 
 const blocCompteur = document.getElementById("bloc-compteur")
 blocCompteur.style.display="none";
