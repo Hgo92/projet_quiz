@@ -347,3 +347,73 @@ body {
   border-radius: 2px;
   animation: fallConfetti 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
+
+@keyframes fallConfetti {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(1080deg);
+    opacity: 0;
+  }
+}
+
+/* efface le compteur sur la page d'acceuil  */
+#landing-page #bloc-compteur {
+  display: none;
+}
+/* footer style */
+.lp-footer {
+  position:absolute; bottom:14px; left:50%; transform:translateX(-50%);
+  font-size:.85rem; color:#ddd; opacity:.7;
+  background: rgba(0,0,0,.35); padding:6px 10px; border-radius:8px;
+  border:1px solid rgba(255,255,255,.12);
+}
+
+/* === Animation de transition pour l'image === */
+.image-animate {
+  animation: scrollUp 0.7s ease;
+}
+
+@keyframes scrollUp {
+  0% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+
+
+.bar-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+.questionset .bar-wrapper {
+  display: flex;
+}
+.progress-bar {
+  background-color: #f2f3f7;
+  border-radius: 100px;
+  box-shadow: 0 1px 5px rgba(136,86,97, 0.5);
+  margin: 15px;
+  height: 17px;
+  width: 500px;
+  max-width: 100%;
+}
+.progress {
+  background: #dc5f0e;
+  border-radius: 100px;
+  height: 17px;
+  width: 0;
+  transition: width 0.6s ease-in-out;
+}   
