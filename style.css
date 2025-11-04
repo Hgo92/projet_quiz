@@ -9,7 +9,11 @@
   .media img {
     max-height: 40vh;
   }
+
+  .score-container .option {
+    font-size: 12px;
 }
+
 *{
   margin: 0;
   padding: 0;
@@ -427,12 +431,13 @@ body {
   margin : 0px 10px;
   height : 2rem;
   align-self :center;
+  width : 7rem;
 }
 
 .score-container button {
   height : 3rem;
   align-self :center;
-  padding: 5px 10px;
+  padding: 5px 8px;
   
 }
 
