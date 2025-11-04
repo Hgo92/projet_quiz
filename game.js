@@ -168,6 +168,7 @@ function finQuiz() {
         })
         
       scoreTableau.style.display="flex";
+      scoreContainer.style.display="none";
     })
 
 
