@@ -24,6 +24,42 @@ scoreTableau.style.display="none";
 const blocCompteur = document.getElementById("bloc-compteur")
 blocCompteur.style.display="none";
 
+let timer;
+const timeDisplay = document.getElementById("time");
+let timeLeft = 15;
+
+function resetTimer() {
+  clearInterval(timer);
+  timeLeft = 15;
+  timeDisplay.innerText = timeLeft;
+
+  timer = setInterval(() => {
+    timeLeft--;
+    timeDisplay.innerText = timeLeft;
+
+    if (timeLeft === 0) {
+      clearInterval(timer);
+      blockChoices();
+    }
+  }, 1000);
+}
+
+function blockChoices() {
+  const currentQuestion = projet_quiz.questions[currentQuestionIndex];
+  const allButtons = reponses.querySelectorAll("button");
+
+  allButtons.forEach(btn => btn.disabled = true);
+
+  // Montrer la bonne réponse
+  allButtons.forEach(btn => {
+    if (btn.innerText === currentQuestion.correct_answer) {
+      btn.classList.add("correct");
+    }
+  });
+
+  suivant.disabled = false;
+}
+
 // CHARGEMENT D’UNE QUESTION
 function loadQuestion() {
   const currentQuestion = projet_quiz.questions[currentQuestionIndex];
@@ -55,10 +91,13 @@ function loadQuestion() {
     option_btn.innerText = option;
     option_btn.classList.add("option");
     option_btn.addEventListener("click", () => selectAnswer(option_btn, currentQuestion.correct_answer));
+    option_btn.addEventListener("click", () => clearInterval(timer))
+
     reponses.appendChild(option_btn);
   });
 
   suivant.disabled = true;
+  resetTimer();
 }
 
 // CONFETTIS 🎊 
@@ -112,7 +151,8 @@ function selectAnswer(selectedBtn, correctAnswer) {
  // FIN DU QUIZ
 function finQuiz() {
 
-     const total = projet_quiz.questions.length;
+    clearInterval(timer)
+    const total = projet_quiz.questions.length;
     const score = correctAnswersCount;
 
     // Mettre à jour le texte selon le score
