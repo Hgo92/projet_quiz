@@ -1,52 +1,52 @@
+/* -------------------------------
+   🔤 Import des polices Google Fonts
+--------------------------------*/
 @import url('https://fonts.googleapis.com/css2?family=Cantata+One&family=Manrope:wght@200..800&display=swap');
-*{
+
+/* -------------------------------
+   🎨 Réinitialisation du style de base
+--------------------------------*/
+* {
   margin: 0;
   padding: 0;
-  font-family: 'Manrope', sans-serif;
-  box-sizing: border-box;
+  font-family: 'Manrope', sans-serif; /* Police principale */
+  box-sizing: border-box; /* Inclut les bordures et paddings dans la taille totale */
 }
+
+/* -------------------------------
+   🌍 Style global du corps de page
+--------------------------------*/
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
-  /* ===== LANDING PAGE ===== */
-  #landing-page h1 {
-    font-size: 2.2rem;
-    padding: 8px 16px;
-  }
 
-  #landing-page p {
-    font-size: 1.2rem;
-    padding: 6px 12px;
-  }
-
-  #start-button {
-    padding: 0.8rem 2rem;
-    font-size: 1rem;
-  }
-/* landing page setting  */
+/* -------------------------------
+   🏠 SECTION : Page d’accueil (landing)
+--------------------------------*/
 #landing-page {
   position: relative;
   width: 100vw;
   height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Contenu empilé verticalement */
   justify-content: flex-start;
   align-items: center;
   padding-top: 60px;
   text-align: center;
   gap: 2rem;
-  background: url("assets/images/background.avif") center / cover no-repeat;
-  background-attachment: fixed;
+  background: url("assets/images/background.avif") center / cover no-repeat; /* Image de fond */
+  background-attachment: fixed; /* Effet de parallaxe */
   color: rgb(0, 0, 0);
   overflow: hidden;
-  background-color: rgba(0, 0, 0, 0.45);
+  background-color: rgba(0, 0, 0, 0.45); /* Filtre sombre */
   background-blend-mode: darken;
 }
 
+/* Titre principal */
 #landing-page h1 {
   font-size: 3.2rem;
   background-color: rgba(0, 0, 0, 0.6);
@@ -54,9 +54,9 @@ body {
   padding: 10px 20px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-
 }
 
+/* Paragraphe d’introduction */
 #landing-page p {
   font-size: 1.5rem;
   background-color: rgba(0, 0, 0, 0.4);
@@ -65,14 +65,16 @@ body {
   border-radius: 6px;
 }
 
+/* Image décorative d’arrière-plan */
 .background {
-   width: 100%;
+  width: 100%;
   height: 100%;
   max-height: 10vh;
   object-fit: contain;
   border-radius: 14px;
 }
 
+/* Bouton “Commencer le quiz” */
 #start-button {
   padding: 1rem 2.5rem;
   font-size: 1.1rem;
@@ -87,6 +89,7 @@ body {
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
 }
 
+/* Effet au survol du bouton start */
 #start-button:hover {
   background: #ffffff;
   color: #111;
@@ -94,34 +97,20 @@ body {
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
 }
 
-/* ===== COMPTEUR ===== */
-  .compteur {
-    top: 20px;
-    left: 20px;
-    width: 120px;
-    padding: 12px 16px;
-    font-size: 0.9rem;
-  }
+/* -------------------------------
+   ❓ Zone des questions et réponses
+--------------------------------*/
 
-  .compteur.center {
-    padding: 10px 20px 12px;
-    font-size: 1rem;
-  }
-
-  /* ===== FOOTER ===== */
-  .lp-footer {
-    font-size: 0.75rem;
-    padding: 4px 8px;
-  }
-
+/* Conteneur principal des options */
 .options {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin: 20px 0;
+  display: flex;
+  flex-wrap: wrap; /* Passe à la ligne si trop d’options */
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
 }
 
+/* Style général des boutons de réponse */
 .options button {
   display: block;
   width: 100%;
@@ -139,13 +128,14 @@ body {
   font-family: 'Cantata One', serif;
 }
 
-/* Different font for all text in the options container */
+/* Applique la même police aux options */
 #options-container {
-  font-family: 'Cantata One', serif; 
+  font-family: 'Cantata One', serif;
   font-weight: 600;
   letter-spacing: 0.3px;
 }
 
+/* Effet au survol des réponses */
 .options button:hover {
   background: #292929;
   color: #fff;
@@ -153,90 +143,91 @@ body {
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
 }
 
+/* Bonne réponse */
 .option.correct {
-  background: #198754; 
+  background: #198754;
   border: 1px solid #157347;
   color: #fff;
   box-shadow: 0 0 14px rgba(25, 135, 84, 0.4);
 }
 
+/* Mauvaise réponse */
 .option.wrong {
-  background: #dc3545; 
+  background: #dc3545;
   border: 1px solid #b02a37;
   color: #fff;
   box-shadow: 0 0 14px rgba(220, 53, 69, 0.4);
 }
 
-.option.correct:hover {
-  background: #157347;
-}
+/* Effets au survol des bonnes / mauvaises réponses */
+.option.correct:hover { background: #157347; }
+.option.wrong:hover { background: #b02a37; }
 
-.option.wrong:hover {
-  background: #b02a37;
-}
-
+/* -------------------------------
+   🧱 Conteneur principal du quiz
+--------------------------------*/
 #quiz-container.split {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr; /* Deux colonnes : question + image */
   gap: 24px;
   width: min(1000px, 92vw);
 }
-/* image settings */
 
+/* -------------------------------
+   🖼️ Image (à droite du quiz)
+--------------------------------*/
 .media img {
   width: 100%;
   height: 100%;
+  display: block; /* Supprime le petit espace blanc sous l’image */
   max-height: 100vh;
-  object-fit:cover;
+  object-fit: cover;
   border: none;
   border-radius: 28px;
   box-shadow: 0 32px 50px rgba(0, 0, 0, 0.841), 0 8px 20px rgba(15, 23, 42, 0.28);
 }
 
+/* Conteneur du texte et des boutons */
 .content {
   display: flex;
   flex-direction: column;
   gap: 20px;
   align-self: center;
-  padding: 2rem 3rem; 
-  border-radius: 20px; 
+  padding: 2rem 3rem;
+  border-radius: 20px;
   box-sizing: border-box;
 }
 
+/* Question principale */
 .question {
   font-weight: 700;
   text-align: center;
   font-size: 1.7rem;
   line-height: 1.35;
 }
-/* question setting */
+
+/* Style spécifique du texte de question */
 #question-text {
-  font-family: 'Cantata One', serif;  
-  font-weight: 700;                 
-  letter-spacing: 0.3px;            
+  font-family: 'Cantata One', serif;
+  font-weight: 700;
+  letter-spacing: 0.3px;
 }
+
+/* Taille spéciale pour la page de fin */
 .question.quiz-finish {
-    font-size: 2rem;
-  }
-/* ===== OPTIONS / BOUTONS ===== */
-
-  #next-button {
-    padding: 8px 24px;
-    font-size: 0.9rem;
-    border-radius: 20px;
-  }
-  .button-row {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 8px;
+  font-size: 2rem;
 }
 
+/* -------------------------------
+   ▶️ Boutons “Suivant”, “Rejouer”
+--------------------------------*/
 .button-row {
   display: flex;
   justify-content: flex-end;
   margin: 0 0 3rem 0;
 }
 
+/* Bouton Suivant */
 #next-button {
   background: linear-gradient(135deg, #3b82f6, #2563eb);
   border: none;
@@ -250,19 +241,23 @@ body {
   box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
 }
 
+/* Effet au survol */
 #next-button:hover:enabled {
   background: linear-gradient(135deg, #2563eb, #1d4ed8);
   transform: scale(1.05);
   box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
 }
 
+/* Quand le bouton est désactivé */
 #next-button:disabled {
   background: #b0b0b0;
   cursor: not-allowed;
   box-shadow: none;
 }
 
-/* ----- COMPTEUR EN PETIT CARRÉ À GAUCHE ----- */
+/* -------------------------------
+   ⏱️ Compteur (affiché en haut à gauche)
+--------------------------------*/
 .compteur {
   position: absolute;
   top: 45px;
@@ -279,45 +274,44 @@ body {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
-.compteur div {
-  margin: 5px 2;
-}
+.compteur div { margin: 5px 2px; }
+.compteur span { color: #000000; font-weight: 700; }
 
-.compteur span {
-  color: #000000;
-  font-weight: 700;
-}
-
+/* Version centrée (page de fin) */
 .compteur.center {
   position: static;
-  left: auto;
-  top: auto;
-  transform: none;
   width: auto;
   padding: 12px 32px 16px;
   font-size: 1.2rem;
   margin: 18px auto 0;
 }
-/* efface le compteur sur la page d'acceuil  */
-#landing-page #bloc-compteur {
-  display: none;
-}
-/* footer style */
+
+/* Cache le compteur sur la page d’accueil */
+#landing-page #bloc-compteur { display: none; }
+
+/* -------------------------------
+   🦶 Footer de la page
+--------------------------------*/
 .lp-footer {
-  position:absolute; bottom:14px; left:50%; transform:translateX(-50%);
-  font-size:.85rem; color:#ddd; opacity:.7;
-  background: rgba(0,0,0,.35); padding:6px 10px; border-radius:8px;
-  border:1px solid rgba(255,255,255,.12);
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: .85rem;
+  color: #ddd;
+  opacity: .7;
+  background: rgba(0,0,0,.35);
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,.12);
 }
 
-.bar-wrapper {
-  display: none;
-  flex-direction: column;
-  align-items: center;
-}
-.questionset .bar-wrapper {
-  display: flex;
-}
+/* -------------------------------
+   📊 Barre de progression (optionnelle)
+--------------------------------*/
+.bar-wrapper { display: none; flex-direction: column; align-items: center; }
+.questionset .bar-wrapper { display: flex; }
+
 .progress-bar {
   background-color: #f2f3f7;
   border-radius: 100px;
@@ -327,34 +321,35 @@ body {
   width: 500px;
   max-width: 100%;
 }
+
 .progress {
   background: #dc5f0e;
   border-radius: 100px;
   height: 17px;
   width: 0;
   transition: width 0.6s ease-in-out;
-}   
+}
 
-/* CSS DU TABLEAU DES SCORES */ 
-
+/* -------------------------------
+   🧮 Tableau des scores
+--------------------------------*/
 .score-container {
   display: flex;
-  padding: 5px; 
-  margin: 0px;
+  padding: 5px;
+  margin: 0;
 }
 
 .score-container input {
-  margin : 0px 10px;
-  height : 2rem;
-  align-self :center;
-  width : 7rem;
+  margin: 0 10px;
+  height: 2rem;
+  align-self: center;
+  width: 7rem;
 }
 
 .score-container button {
-  height : 3rem;
-  align-self :center;
+  height: 3rem;
+  align-self: center;
   padding: 5px 8px;
-  
 }
 
 #score-tableau {
@@ -365,53 +360,45 @@ body {
   margin: 3rem;
 }
 
+/* Styles du tableau */
 table {
-font-size: 14px;
-border-radius: 10px;
-border-spacing: 0;
-text-align: center;
+  font-size: 14px;
+  border-radius: 10px;
+  border-spacing: 0;
+  text-align: center;
 }
 
+/* Caption du tableau */
 caption {
   color: black;
   margin-bottom: 7px;
   font-size: 16px;
 }
 
+/* En-têtes du tableau */
 th {
-background: black;
-padding: 10px 20px;
-color: white;
+  background: black;
+  padding: 10px 20px;
+  color: white;
 }
+
+/* Bordures du tableau */
 th, td {
-border-style: solid;
-border-width: 1px 1px 1px 1px;
-border-color: rgba(0,0,0,0.1);
+  border: 1px solid rgba(0,0,0,0.1);
 }
 
-th:first-child {
-border-top-left-radius: 5px;
-}
-th:last-child {
-border-top-right-radius: 5px;
-border-right: none;
-}
-th:first-child, td:first-child {
-padding: 7px 8px;
-}
+/* Coins arrondis */
+th:first-child { border-top-left-radius: 5px; }
+th:last-child { border-top-right-radius: 5px; border-right: none; }
+td { padding: 7px 20px; color: rgba(0, 0, 0, 0.6); }
 
-td {
-  padding: 7px 20px;
-  color: rgba(0, 0, 0, 0.6);
-}
+/* Dernière ligne arrondie */
+tr:last-child td:first-child { border-radius: 0 0 0 5px; }
+tr:last-child td:last-child { border-radius: 0 0 5px 0; }
 
-tr:last-child td:first-child {
-border-radius: 0 0 0 5px;
-}
-tr:last-child td:last-child {
-border-radius: 0 0 5px 0;
-}
-
+/* -------------------------------
+   ⏰ Timer
+--------------------------------*/
 #timer {
   font-size: 1.4rem;
   font-weight: 700;
@@ -425,19 +412,23 @@ border-radius: 0 0 5px 0;
   text-align: center;
   box-shadow: 0 4px 10px rgba(0,0,0,0.25);
 }
+
 #timer span {
-  color: #dc3545; /* Rouge */
+  color: #dc3545; /* Rouge pour le chrono */
   font-size: 1.6rem;
 }
-/* ===== MOBILE (≤600px): consolidated ===== */
+
+/* -------------------------------
+   📱 Version mobile (≤600px)
+--------------------------------*/
 @media (max-width: 600px) {
-  /* Hide compteur on mobile */
+  /* Cache le compteur sur mobile */
   #bloc-compteur { display: none !important; visibility: hidden !important; opacity: 0 !important; }
 
-  /* Hide the left image panel and use single column */
+  /* Cache l’image du quiz et passe en 1 colonne */
   #quiz-section .media { display: none !important; }
   #quiz-container.split { grid-template-columns: 1fr !important; gap: 16px; width: 95vw; padding: 12px; }
 
-  /* Small score font in score table  */
+  /* Texte plus petit pour le tableau de score */
   .score-container .option { font-size: 12px; }
 }
