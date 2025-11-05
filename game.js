@@ -170,7 +170,7 @@ function finQuiz() {
 
         // Son d'applaudissements si score parfait
     if(score === total){
-        const audio = new Audio("/assets/sounds/applause.wav");
+        const audio = new Audio("/assets/sounds/applause.mp3");
         audio.play();
     }
 
