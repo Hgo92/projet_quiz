@@ -97,6 +97,7 @@ function loadQuestion() {
     reponses.appendChild(option_btn);
   });
 
+  suivant.style.display = "inline-block"
   suivant.disabled = true;
   resetTimer();
 }
@@ -231,7 +232,6 @@ function finQuiz() {
     replayButton.addEventListener("click", () => {
       currentQuestionIndex = 0; // revenir à la première question
       correctAnswersCount = 0;
-      suivant.style.display = "inline-block"; // reafficher le button suivant
       reponses.innerHTML = ""; // revenir a 0
       scoreTableau.style.display="none";
       loadQuestion(); // relancer le quiz
