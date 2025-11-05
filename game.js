@@ -98,6 +98,7 @@ function loadQuestion() {
   });
 
   suivant.style.display = "inline-block"
+  blocTimer.style.display = "inline-block";
   suivant.disabled = true;
   resetTimer();
 }
