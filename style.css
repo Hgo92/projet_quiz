@@ -345,6 +345,7 @@ body {
   height: 2rem;
   align-self: center;
   width: 7rem;
+  padding:3px;
 }
 
 .score-container button {
