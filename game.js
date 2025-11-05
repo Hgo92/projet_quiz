@@ -111,14 +111,31 @@ function selectAnswer(selectedBtn, correctAnswer) {
 }
  // FIN DU QUIZ
 function finQuiz() {
-    question.innerText = "🎉 Terminé ! Bravo d'avoir complété le quiz 🎬🎵";
-    reponses.innerHTML = ""; // j'efface les reponses 
-    suivant.style.display = "none"; // je cache le button suivant
-    image.style.display = "none"
+
+     const total = projet_quiz.questions.length;
+    const score = correctAnswersCount;
+
+    // Mettre à jour le texte selon le score
+    if(score === total){
+        question.innerText = "🎉 Incroyable ! Score parfait ! Bravo ! 🎬🎵";
+        launchConfetti(); // confettis pour score parfait
+    } else if(score >= 2){
+        question.innerText = "👏 Bien joué ! Tu t'y connais pas mal !";
+    } else {
+        question.innerText = "😅 Oups… Tu feras mieux la prochaine fois !";
+    }
+
+        // Son d'applaudissements si score parfait
+    if(score === total){
+        const audio = new Audio("/assets/sounds/applause.wav");
+        audio.play();
+    }
+
+    reponses.innerHTML = ""; 
+    suivant.style.display = "none"; 
+    image.style.display = "none";
     question.classList.add("quiz-finish");
     blocCompteur.classList.add("center");
-    const audio = new Audio("/assets/sounds/applause.wav");
-    audio.play()
 
      // Enregistrer le score 
     const scoreInput = document.createElement("input");
