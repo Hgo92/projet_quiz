@@ -483,3 +483,21 @@ border-radius: 0 0 0 5px;
 tr:last-child td:last-child {
 border-radius: 0 0 5px 0;
 }
+
+#timer {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #111;
+  background: #ffffffc7;
+  border: 3px solid #000;
+  padding: 8px 20px;
+  width: fit-content;
+  margin: 10px auto;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+#timer span {
+  color: #dc3545; /* Rouge */
+  font-size: 1.6rem;
+}
