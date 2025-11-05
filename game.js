@@ -24,6 +24,7 @@ scoreTableau.style.display="none";
 const blocCompteur = document.getElementById("bloc-compteur")
 blocCompteur.style.display="none";
 
+const blocTimer = document.getElementById("timer")
 let timer;
 const timeDisplay = document.getElementById("time");
 let timeLeft = 15;
@@ -151,7 +152,8 @@ function selectAnswer(selectedBtn, correctAnswer) {
  // FIN DU QUIZ
 function finQuiz() {
 
-    clearInterval(timer)
+    blocTimer.style.display = "none";
+    clearInterval(timer);
     const total = projet_quiz.questions.length;
     const score = correctAnswersCount;
 
